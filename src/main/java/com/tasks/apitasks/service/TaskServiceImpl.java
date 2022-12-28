@@ -19,8 +19,8 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public Task getTask(Long idTask) {
-        return taskRepository.findById(idTask).orElseThrow(() -> {throw new RuntimeException();});
+    public Optional<Task> getTask(Long idTask) {
+        return taskRepository.findById(idTask);
     }
 
     @Override
@@ -33,12 +33,7 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public boolean deleteTask(Long idTask) {
-
-        try {
-            taskRepository.deleteById(idTask);
-            return true;
-        }catch(Exception e){
-            return false;
-        }
+        taskRepository.deleteById(idTask);
+        return true;
     }
 }

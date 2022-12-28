@@ -8,11 +8,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "Tasks")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Task {
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,8 +23,8 @@ public class Task {
     private String title;
     @Column(nullable = false)
     private String description;
-    //private Date creation_date;
-    //private Date Completion_date;
+    private Date creation_date;
+    private Date completion_date;
     private boolean completed;
     @Column(nullable = false)
     private String status;

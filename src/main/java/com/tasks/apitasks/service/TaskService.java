@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface TaskService {
     Task createTask(Task task);
 
-    Task getTask(Long idTask);
+    Optional<Task> getTask(Long idTask);
 
     Task updateTask(Long idTask, Task task);
 
